@@ -40,6 +40,17 @@ class GIN_EXPORT Dictionary {
     }
     return ConvertFromV8(isolate_, val, out);
   }
+  template<typename T>
+  bool GetBydefaultVal(const std::string& key, T defaultVal,  T* out)
+  {
+	  v8::Local<v8::Value> val;
+	  if (!object_->Get(isolate_->GetCurrentContext(), StringToV8(isolate_, key))
+		  .ToLocal(&val)) {
+		  out = &defaultVal;
+		  return false;
+	  }
+	  return ConvertFromV8(isolate_, val, out);
+  }
 
   template<typename T>
   bool Set(const std::string& key, T val) {

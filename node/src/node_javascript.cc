@@ -49,21 +49,21 @@ void DefineJavaScript(Environment* env, Local<Object> target) {
 
             if (0 == strcmp(native.name, "url")) {
                 std::vector<char>* buffer = new std::vector<char>();
-                content::readJsFile(L"E:\\mycode\\miniblink49\\trunk\\node\\lib\\url.js", buffer);
+                content::readJsFile(L"D:\\source\\myproject\\miniblink49\\node\\lib\\url.js", buffer);
                 native.source = (const unsigned char*)&buffer->at(0);
                 native.source_len = buffer->size();
             }
 
             if (0 == strcmp(native.name, "internal/url")) {
                 std::vector<char>* buffer = new std::vector<char>();
-                content::readJsFile(L"E:\\mycode\\miniblink49\\trunk\\node\\lib\\internal\\url.js", buffer);
+                content::readJsFile(L"D:\\source\\myproject\\miniblink49\\node\\lib\\internal\\url.js", buffer);
                 native.source = (const unsigned char*)&buffer->at(0);
                 native.source_len = buffer->size();
             }
 
             if (0 == strcmp(native.name, "internal/querystring")) {
                 std::vector<char>* buffer = new std::vector<char>();
-                content::readJsFile(L"E:\\mycode\\miniblink49\\trunk\\node\\lib\\internal\\querystring.js", buffer);
+                content::readJsFile(L"D:\\source\\myproject\\miniblink49\\node\\lib\\internal\\querystring.js", buffer);
                 native.source = (const unsigned char*)&buffer->at(0);
                 native.source_len = buffer->size();
             }

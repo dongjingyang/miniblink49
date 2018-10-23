@@ -128,10 +128,7 @@ v8::Local<v8::Object> NativeImage::toBitmap(const base::DictionaryValue& args) {
     Gdiplus::Rect rect(0, 0, w, h);
     Gdiplus::BitmapData lockedBitmapData;
     m_gdipBitmap->LockBits(
-#if _DEBUG
-        &
-#endif
-        rect, Gdiplus::ImageLockModeRead, PixelFormat32bppARGB, &lockedBitmapData);
+        &rect, Gdiplus::ImageLockModeRead, PixelFormat32bppARGB, &lockedBitmapData);
 
     v8::Local<v8::Object> result;
     const char* data = reinterpret_cast<const char*>(lockedBitmapData.Scan0);

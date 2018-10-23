@@ -1866,7 +1866,7 @@ private:
             createWindowParam->height = createWindowParam->minHeight;
 
         std::string title;
-        options->GetBydefaultVal("title", "Electron", &title);
+        options->GetBydefaultVal("title", std::string("Electron"), &title);
         createWindowParam->title = StringUtil::UTF8ToUTF16(title);
 
         if (createWindowParam->transparent) {

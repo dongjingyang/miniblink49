@@ -16,6 +16,7 @@
 #include "base/files/file_path.h"
 #include <vector>
 #include <ShellAPI.h>
+#include "common/StringUtil.h"
 
 #ifndef NIF_SHOWTIP
 #define NIF_SHOWTIP     0x00000080
@@ -123,16 +124,16 @@ public:
     void displayBalloonApi(const v8::FunctionCallbackInfo<v8::Value>& args) {
         gin::Dictionary options(isolate(), args[0]->ToObject());
 
-        std::wstring iconPath;
-        options.GetBydefaultVal("icon", L"", &iconPath);
+        std::string iconPath;
+        options.GetBydefaultVal("icon", std::string(""), &iconPath);
 
-        std::wstring title;
-        options.GetBydefaultVal("title", L"", &title);
+        std::string title;
+        options.GetBydefaultVal("title", std::string(""), &title);
+		
+        std::string content;
+        options.GetBydefaultVal("content", std::string(""), &content);
 
-        std::wstring content;
-        options.GetBydefaultVal("content", L"", &content);
-
-        m_tray.showBalloon(content.c_str(), title.c_str());
+        m_tray.showBalloon(StringUtil::UTF8ToUTF16(content).c_str(), StringUtil::UTF8ToUTF16(title).c_str());
     }
 
     void popUpContextMenu() {

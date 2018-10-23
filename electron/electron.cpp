@@ -68,7 +68,8 @@ static void initPeRes(HINSTANCE hInstance) {
 
 void scrt_initialize_thread_safe_statics();
 
-int APIENTRY wWinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPTSTR lpCmdLine, int nCmdShow) {
+int APIENTRY wWinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPTSTR lpCmdLine, int nCmdShow) 
+{
     UNREFERENCED_PARAMETER(hPrevInstance);
     UNREFERENCED_PARAMETER(lpCmdLine);
 
@@ -102,6 +103,7 @@ int APIENTRY wWinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPTSTR lpCmd
 	return 0;
 }
 
-int main() {
+int main() 
+{
     return wWinMain(::GetModuleHandle(NULL), 0, 0, 0);
 }

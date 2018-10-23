@@ -33,16 +33,16 @@ bool Event::sendReply(const std::string& json) {
     return true;
 }
 
-std::string Event::returnValueGet() {
-    return m_returnValue;
-}
-
-void Event::returnValueSet(std::string json) {
-    m_returnValue = json;
-
-    if (m_callback)
-        (*m_callback)(json);
-}
+//std::string Event::returnValueGet() {
+//    return m_returnValue;
+//}
+//
+//void Event::returnValueSet(std::string json) {
+//    m_returnValue = json;
+//
+//    if (m_callback)
+//        (*m_callback)(json);
+//}
 
 // static
 Event* Event::create(v8::Isolate* isolate, v8::Local<v8::Object> wrapper, std::function<void(std::string)>&& callback) {

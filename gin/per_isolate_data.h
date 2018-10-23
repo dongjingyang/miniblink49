@@ -1,7 +1,7 @@
 // Copyright 2013 The Chromium Authors. All rights reserved.
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
-
+#pragma once
 #ifndef GIN_PER_ISOLATE_DATA_H_
 #define GIN_PER_ISOLATE_DATA_H_
 
@@ -11,7 +11,7 @@
 //#include "base/memory/ref_counted.h"
 #include "gin/gin_export.h"
 #include "gin/public/wrapper_info.h"
-#include "v8.h"
+
 
 namespace base {
 class SingleThreadTaskRunner;
@@ -22,7 +22,7 @@ namespace gin {
 class IndexedPropertyInterceptor;
 class NamedPropertyInterceptor;
 class WrappableBase;
-
+class v8::Isolate;
 // There is one instance of PerIsolateData per v8::Isolate managed by Gin. This
 // class stores all the Gin-related data that varies per isolate.
 class GIN_EXPORT PerIsolateData {

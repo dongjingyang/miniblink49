@@ -7,10 +7,11 @@
 //#include "base/thread_task_runner_handle.h"
 #include "gin/per_isolate_data.h"
 #include "gin/public/gin_embedders.h"
+#include "v8.h"
 
 using v8::ArrayBuffer;
 using v8::Eternal;
-using v8::Isolate;
+//using v8::Isolate;
 using v8::Local;
 using v8::Object;
 using v8::FunctionTemplate;
@@ -18,7 +19,7 @@ using v8::ObjectTemplate;
 
 namespace gin {
 
-PerIsolateData::PerIsolateData(Isolate* isolate,
+PerIsolateData::PerIsolateData(v8::Isolate* isolate,
                                ArrayBuffer::Allocator* allocator)
     : isolate_(isolate)
     , allocator_(allocator)
@@ -31,7 +32,7 @@ PerIsolateData::~PerIsolateData() {
   isolate_->SetData(kEmbedderNativeGin, NULL);
 }
 
-PerIsolateData* PerIsolateData::From(Isolate* isolate) {
+PerIsolateData* PerIsolateData::From(v8::Isolate* isolate) {
   return static_cast<PerIsolateData*>(isolate->GetData(kEmbedderNativeGin));
 }
 

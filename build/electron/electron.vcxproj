@@ -74,7 +74,9 @@
     <ClCompile Include="..\..\electron\browser\api\ApiWindow.cpp" />
     <ClCompile Include="..\..\electron\browser\api\WindowList.cpp" />
     <ClCompile Include="..\..\electron\common\api\ApiAsar.cpp" />
+    <ClCompile Include="..\..\electron\common\api\ApiClipboard.cpp" />
     <ClCompile Include="..\..\electron\common\api\ApiIntlCollator.cpp" />
+    <ClCompile Include="..\..\electron\common\api\ApiNativeImage.cpp" />
     <ClCompile Include="..\..\electron\common\api\ApiOriginalFs.cpp" />
     <ClCompile Include="..\..\electron\common\api\ApiScreen.cpp" />
     <ClCompile Include="..\..\electron\common\api\ApiShell.cpp" />
@@ -90,6 +92,7 @@
     <ClCompile Include="..\..\electron\common\asar\ScopedTemporaryFile.cpp" />
     <ClCompile Include="..\..\electron\common\AtomCommandLine.cpp" />
     <ClCompile Include="..\..\electron\common\IdLiveDetect.cpp" />
+    <ClCompile Include="..\..\electron\common\InitGdiPlus.cpp" />
     <ClCompile Include="..\..\electron\common\NodeBinding.cpp" />
     <ClCompile Include="..\..\electron\common\NodeThread.cpp" />
     <ClCompile Include="..\..\electron\common\OptionsSwitches.cpp" />
@@ -99,6 +102,8 @@
     <ClCompile Include="..\..\electron\Electron.cpp" />
     <ClCompile Include="..\..\electron\renderer\api\ApiRendererIpc.cpp" />
     <ClCompile Include="..\..\electron\renderer\api\ApiWebFrame.cpp" />
+    <ClCompile Include="..\..\electron\renderer\WebviewPlugin.cpp" />
+    <ClCompile Include="..\..\electron\renderer\WebviewPluginImpl.cpp" />
     <ClCompile Include="..\..\gin\arguments.cc" />
     <ClCompile Include="..\..\gin\converter.cc" />
     <ClCompile Include="..\..\gin\dictionary.cc" />
@@ -295,7 +300,7 @@
       <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <OutputFile>$(OutDir)$(TargetName)$(TargetExt)</OutputFile>
-      <AdditionalDependencies>imm32.lib;node.lib;shlwapi.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>gdiplus.lib;imm32.lib;node.lib;shlwapi.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <AdditionalLibraryDirectories>$(SolutionDir)..\out\$(Configuration)\</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
@@ -354,8 +359,8 @@
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
-      <PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;STATIC_GETOPT;WIN32_LEAN_AND_MEAN;BUILDING_NODE_EXTENSION=1;ENABLE_CEF=1;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>$(SolutionDir)../electron/;$(SolutionDir)../;$(SolutionDir)../cef;$(SolutionDir)../wke;$(SolutionDir)../node/include;$(SolutionDir)../v8_4_8;$(SolutionDir)../v8_4_8/include</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;STATIC_GETOPT;WIN32_LEAN_AND_MEAN;ENABLE_CEF=1;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>$(SolutionDir)../node/cares/include;$(SolutionDir)../electron/;$(SolutionDir)../;$(SolutionDir)../cef;$(SolutionDir)../wke;$(SolutionDir)../node/include;$(SolutionDir)../v8_5_7;$(SolutionDir)../v8_5_7/include;$(SolutionDir)../node/uv/include;$(SolutionDir)../node/src</AdditionalIncludeDirectories>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
       <StringPooling>true</StringPooling>
       <FavorSizeOrSpeed>Neither</FavorSizeOrSpeed>
@@ -370,7 +375,7 @@
       <AdditionalLibraryDirectories>$(SolutionDir)..\out\$(Configuration)\</AdditionalLibraryDirectories>
       <AdditionalDependencies>imm32.lib;miniblink.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <AdditionalLibraryDirectories>$(SolutionDir)..\out\$(Configuration)\</AdditionalLibraryDirectories>
-      <AdditionalDependencies>imm32.lib;node.lib;shlwapi.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib</AdditionalDependencies>
+      <AdditionalDependencies>gdiplus.lib;imm32.lib;node.lib;shlwapi.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">

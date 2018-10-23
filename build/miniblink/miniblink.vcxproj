@@ -347,7 +347,7 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
-      <PreprocessorDefinitions>_USING_V110_SDK71_;_WINDLL;_UNICODE;UNICODE;BUILDING_CEF_SHARED;NDEBUG;WIN32;_WINDOWS;INSIDE_BLINK=1;BLINK_IMPLEMENTATION=1;ENABLE_OILPAN=1;ENABLE_WKE=1;ENABLE_CEF=1;CARES_STATICLIB=1</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_USING_V110_SDK71_;_WINDLL;_UNICODE;UNICODE;BUILDING_CEF_SHARED;NDEBUG;WIN32;_WINDOWS;INSIDE_BLINK=1;BLINK_IMPLEMENTATION=1;ENABLE_OILPAN=1;ENABLE_WKE=1;ENABLE_CEF=1;CARES_STATICLIB=1;BUILDING_NODE_EXTENSION=1</PreprocessorDefinitions>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
       <PrecompiledHeader>Use</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
@@ -522,6 +522,7 @@
     <ClCompile Include="..\..\content\resources\DebuggerScriptSourceJs.cpp" />
     <ClCompile Include="..\..\content\resources\InjectedScriptSourceJs.cpp" />
     <ClCompile Include="..\..\content\resources\InspectorOverlayPageHtml.cpp" />
+    <ClCompile Include="..\..\content\resources\MediaPlayerData.cpp" />
     <ClCompile Include="..\..\content\ui\ClipboardUtil.cpp" />
     <ClCompile Include="..\..\content\ui\DragHandle.cpp" />
     <ClCompile Include="..\..\content\ui\PopupMenuWin.cpp" />
